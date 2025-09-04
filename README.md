@@ -34,18 +34,3 @@ docker run -d -p 8080:80 \
   --name dockwatch \
   dockwatch
 
-version: "3.8"
-
-services:
-  dockwatch:
-    image: dockwatch
-    container_name: dockwatch
-    environment:
-      - CRON_SCHEDULE=*/5 * * * *
-      - DOCKER_HOSTS=root@dockhost1,root@dockhost2
-      - TZ=America/Chicago
-    ports:
-      - "8080:80"
-    volumes:
-      - ./data:/var/www/html
-
